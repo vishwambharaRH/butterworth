@@ -318,8 +318,8 @@ make
 
 ## Roadmap
 
-* [x] Core biquad filtering
-* [x] Notch filter
+* [ ] Core biquad filtering
+* [ ] Notch filter
 * [ ] Butterworth low-pass
 * [ ] Butterworth high-pass
 * [ ] Butterworth band-pass
