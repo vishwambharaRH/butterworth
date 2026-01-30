@@ -20,9 +20,10 @@ extern "C" {
  *   1. Analog Butterworth prototype (s-domain)
  *   2. Bilinear transform with pre-warping
  *   3. Pole/zero pairing into SOS
- *   4. Direct Form II Transposed form
+ *   4. Gain normalization
+ *   5. Direct Form II Transposed form
  *
- * Equivalent to scipy.signal.butter(order, cutoff_hz/fs_hz*2, btype='low', output='sos')
+ * Equivalent to scipy.signal.butter(order, cutoff_hz, fs=fs_hz, btype='low', output='sos')
  *
  * @param f Filter structure to initialize
  * @param order Filter order (analog prototype). Max order is IIRDSP_MAX_SECTIONS * 2.
@@ -40,7 +41,7 @@ int butter_lowpass_init(
 /**
  * Design a Butterworth high-pass filter
  *
- * Equivalent to scipy.signal.butter(order, cutoff_hz/fs_hz*2, btype='high', output='sos')
+ * Equivalent to scipy.signal.butter(order, cutoff_hz, fs=fs_hz, btype='high', output='sos')
  *
  * @param f Filter structure to initialize
  * @param order Filter order (analog prototype). Max order is IIRDSP_MAX_SECTIONS * 2.
@@ -59,7 +60,7 @@ int butter_highpass_init(
  * Design a Butterworth band-pass filter
  *
  * Band-pass transformation produces 2*order poles.
- * Equivalent to scipy.signal.butter(order, [f_low/fs_hz*2, f_high/fs_hz*2], btype='band', output='sos')
+ * Equivalent to scipy.signal.butter(order, [f_low, f_high], fs=fs_hz, btype='band', output='sos')
  *
  * @param f Filter structure to initialize
  * @param order Filter order (analog prototype). Max order is IIRDSP_MAX_SECTIONS (band-pass produces 2*order poles).
